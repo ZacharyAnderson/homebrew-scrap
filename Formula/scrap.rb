@@ -1,7 +1,7 @@
 class Scrap < Formula
   desc "Fast, interactive note-taking CLI tool with integrated explorer interface"
   homepage "https://github.com/ZacharyAnderson/Scrap"
-  version "0.0.2"
+  version "0.0.4"
   license "MIT"
 
   if OS.mac?
