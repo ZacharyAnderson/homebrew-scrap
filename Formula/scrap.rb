@@ -1,20 +1,20 @@
 class Scrap < Formula
   desc "Fast, interactive note-taking CLI tool with integrated explorer interface"
   homepage "https://github.com/ZacharyAnderson/Scrap"
-  version "0.0.4"
+  version "0.0.5"
   license "MIT"
 
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/ZacharyAnderson/Scrap/releases/download/v0.0.4/scrap-macos-arm64.tar.gz"
-      sha256 "5efea2cb937b47fe1f046974e706225fd5125a9f4a06a228acf2b2c0b3ef8afb"
+      url "https://github.com/ZacharyAnderson/Scrap/releases/download/v0.0.5/scrap-macos-arm64.tar.gz"
+      sha256 "1f1d2cf6a919813404db004acd5bcffbf3422b4f570f0ef9a71cea4ced368bd5"
     else
-      url "https://github.com/ZacharyAnderson/Scrap/releases/download/v0.0.4/scrap-macos-x86_64.tar.gz"
-      sha256 "2fa404dd963e4216967c24b76414800bd1b9cbdf423692b0254e359da7f9d730"
+      url "https://github.com/ZacharyAnderson/Scrap/releases/download/v0.0.5/scrap-macos-x86_64.tar.gz"
+      sha256 "f25c13d2128361123e999a1bc52444ce47871b22131de55e4c2dc62f7301ffd0"
     end
   else
-    url "https://github.com/ZacharyAnderson/Scrap/releases/download/v0.0.4/scrap-linux-x86_64.tar.gz"
-    sha256 "da05dd29ab7f3df2517d118a797118a0dfc58d4eeef3ead545ecd439dd52bc0a"
+    url "https://github.com/ZacharyAnderson/Scrap/releases/download/v0.0.5/scrap-linux-x86_64.tar.gz"
+    sha256 "22eeea7124ee7822c7a31f303822e82a5fc3aba0912c2576c6a4ec3e20bc3a0f"
   end
 
   depends_on "bat"
