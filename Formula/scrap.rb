@@ -13,8 +13,8 @@ class Scrap < Formula
       sha256 "2fa404dd963e4216967c24b76414800bd1b9cbdf423692b0254e359da7f9d730"
     end
   else
-    url "https://github.com/ZacharyAnderson/Scrap/releases/download/v0.0.2/scrap-linux-x86_64.tar.gz"
-    sha256 "9cc274cb7ff6b9088843cc64765f14166fec305aeca318cae78f1f1829d4878f"
+    url "https://github.com/ZacharyAnderson/Scrap/releases/download/v0.0.4/scrap-linux-x86_64.tar.gz"
+    sha256 "da05dd29ab7f3df2517d118a797118a0dfc58d4eeef3ead545ecd439dd52bc0a"
   end
 
   depends_on "bat"
