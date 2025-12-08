@@ -1,7 +1,7 @@
 class Scrap < Formula
   desc "Fast, interactive note-taking CLI tool with integrated explorer interface"
   homepage "https://github.com/zachanderson/scrap"
-  version "1.0.0"
+  version "0.0.2"
   
   on_macos do
     if Hardware::CPU.arm?
