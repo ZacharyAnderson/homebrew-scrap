@@ -23,6 +23,9 @@ class Scrap < Formula
   def install
     # Install the binary
     bin.install "scrap"
+    
+    # Install scripts to libexec/scripts
+    libexec.install "scripts"
   end
 
   def post_install
