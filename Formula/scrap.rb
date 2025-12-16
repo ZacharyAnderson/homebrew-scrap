@@ -36,7 +36,7 @@ class Scrap < Formula
     # Initialize SQLite database and notes table if it doesn't exist
     db_path = "#{scrap_dir}/scrap.db"
     unless File.exist?(db_path)
-      system "sqlite3", db_path, <<~SQL
+      sql = <<~SQL
         CREATE TABLE notes(
           id integer primary key autoincrement,
           title text not null,
@@ -55,6 +55,8 @@ class Scrap < Formula
             WHERE id = OLD.id;
         END;
       SQL
+
+      IO.popen(["sqlite3", db_path], "w") { |io| io.puts sql }
     end
   end
 
