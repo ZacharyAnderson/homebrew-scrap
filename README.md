@@ -1,14 +1,11 @@
 # homebrew-scrap
 
-Homebrew tap for [Scrap](https://github.com/ZacharyAnderson/Scrap) - a fast, interactive note-taking CLI tool.
+Homebrew tap for [scrap](https://github.com/ZacharyAnderson/scrap-rs) - a CLI note-taking app with a TUI, tag-based organization, and LLM-powered summaries.
 
 ## Installation
 
 ```bash
-# Add the tap
 brew tap zacharyanderson/scrap
-
-# Install Scrap
 brew install scrap
 ```
 
@@ -20,16 +17,22 @@ brew install zacharyanderson/scrap/scrap
 
 ## What gets installed
 
-- The `scrap` binary
-- SQLite database initialized at `~/.scrap/scrap.db` with notes table and triggers
-- Dependencies: `fzf` and `bat`
+- The `scrap` binary (built from source with Cargo)
+- SQLite database initialized at `~/.scrap/scrap.db` on first run
+
+## Optional setup
+
+For the summarize feature, set your Anthropic API key:
+
+```bash
+export ANTHROPIC_API_KEY=your_key_here
+```
 
 ## Usage
 
-After installation, run:
-
 ```bash
-scrap help
+scrap        # Launch the TUI
+scrap --help # See all commands
 ```
 
-For more information, see the [main Scrap repository](https://github.com/ZacharyAnderson/Scrap).
+For more information, see the [scrap-rs repository](https://github.com/ZacharyAnderson/scrap-rs).
