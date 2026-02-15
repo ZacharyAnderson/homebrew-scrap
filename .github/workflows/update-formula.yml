@@ -1,0 +1,44 @@
+name: Update Formula
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # Check every hour
+  workflow_dispatch:      # Manual trigger
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check for new version
+        id: check
+        run: |
+          # Get latest tag from scrap-rs
+          LATEST=$(curl -s https://api.github.com/repos/ZacharyAnderson/scrap-rs/tags | jq -r '.[0].name')
+
+          # Get current tag from formula
+          CURRENT=$(grep -oP 'tag: "v\K[0-9.]+' Formula/scrap.rb)
+
+          echo "Latest: $LATEST, Current: v$CURRENT"
+
+          if [ "$LATEST" != "v$CURRENT" ]; then
+            echo "needs_update=true" >> $GITHUB_OUTPUT
+            echo "new_version=$LATEST" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Update formula
+        if: steps.check.outputs.needs_update == 'true'
+        run: |
+          VERSION="${{ steps.check.outputs.new_version }}"
+          sed -i "s/tag: \"v[0-9]*\.[0-9]*\.[0-9]*\"/tag: \"${VERSION}\"/" Formula/scrap.rb
+
+      - name: Commit and push
+        if: steps.check.outputs.needs_update == 'true'
+        run: |
+          VERSION="${{ steps.check.outputs.new_version }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Formula/scrap.rb
+          git commit -m "Update scrap to ${VERSION}"
+          git push
